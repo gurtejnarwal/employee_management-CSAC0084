@@ -4,6 +4,7 @@ There are five Group members who will be work on this website. Names are given b
 
 Program NAme: CSAT-CSAC
 Project Code : CPL-5559-CSAT-CSAC-0084-V2
+Instructor : Yasmina Aboudaba
 
 1. Gurtej Singh  (C0739408)
 2. Gagandeep Monga (C0740029)
