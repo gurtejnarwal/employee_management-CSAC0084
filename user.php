@@ -1,14 +1,15 @@
+<?php include"top.php";?>
 
-				<div class="jumbotron">
-  <h1 class="display-4">About Us</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>Join our management system today !! Its free and always will be.</p>
-  <a class="btn btn-primary btn-lg" href="Signup.html" role="button">Sign Up</a>
+
+
+
+<div class="container-fluid">
+	<div class="col-12">
+		<h1 class="my-2">Welcome <?php   echo $_SESSION['USEREMAIL'];  ?></h1>
+		
+	</div>
+	
 </div>
-
-
-
 
 
     <!-- Optional JavaScript -->
@@ -16,6 +17,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 
  <footer class="page-footer font-small bg-dark pt-4 text-white">
 
@@ -26,12 +29,14 @@
 
  	</div>
 
- 	<div class="footer-copyright text-center py-3">© 2018 Copyright:
+ 	 	<div class="footer-copyright text-center py-3">© 2018 Copyright:
     <a href="index.html">Website Name</a>
   </div>
 
 
+
 </footer>
-</div>
+
+</footer>
 </body>
 </html>
