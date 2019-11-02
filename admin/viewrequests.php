@@ -21,9 +21,9 @@ $i=1;
   			{
   // Fetch one and one row
   			?>	
-  			<div class="container-fluid text-center col-lg-10 align-items-center padding">
+  			<div class="container-fluid text-center col-lg-12 padding">
   			<h1>All Requests</h1>
-  			<div class="container" style="padding-bottom: 300px;">
+  			<div class="container-fluid" style="padding-bottom: 300px;">
 			
 				<form method="POST">
 	

@@ -1,6 +1,38 @@
 <?php include"top.php"; 
-   
-   $userinfo=$_SESSION['USEREMAIL'];
+  $userinfo=$_GET['email'];
+
+ 
+if (isset($_POST['update'])) {
+
+
+	$fname=$_POST['fname'];
+	$lname=$_POST['lname'];
+	$email=$_POST['email'];
+	$dob=$_POST['dob'];
+	$phone=$_POST['phone'];
+	$department=$_POST['department'];
+
+
+	
+
+		$sql="UPDATE `users` SET `fname`='$fname',`lastname`='$lname',`dob`='$dob',`email`='$email',`department`='$department',`phone`='$phone' WHERE `email`='$userinfo'";
+
+		echo $sql;
+
+		 if (mysqli_query($conn, $sql)) {
+               echo "New record created successfully";
+            } 
+            else {
+               echo "Error: " . $sql . "" . mysqli_error($conn);
+            }
+
+	}
+
+	# code...
+
+
+
+ 
   
    		
       
@@ -22,14 +54,14 @@
 	  			while ($row=mysqli_fetch_row($result))
 	    		{
 		
-						?>
+				?>
+
 
 
 	
-<div class="container-fluid align-items-center padding">
-	<div class="row">
-		<div class="col-lg-6 col-md-6 col-sm-12 border align-items-center text-center">
-	 <h1 class="display-5 text center">Profile Info</h1>
+<div class="container-fluid text-center col-lg-5 align-items-center padding">
+	<div class="col-12"></div>
+	 <h1 class="display-4">Edit user Info</h1>
 	 <h3>Please fill in all the details</h3>
 	 <form method="post"  style="padding-bottom: 10px;">
 	 <div class="row">
@@ -65,21 +97,6 @@
 
 	 </form>
 </div>
-	    								<div class="col-lg-6 col-md-6 col-sm-12 border align-items-center text-center">
-	    							<h3>Admin Operations :</h3>
-	    									
-	    											<a href="adduser.php" class="btn btn-primary">Add New User</a><br><br>
-	    											<a href="viewrequests.php" class="btn btn-primary">Check Response Requests</a><br><br>
-	    											<a href="allusers.php" class="btn btn-primary">View All Users</a><br><br>
-	    											<a href="department.php" class="btn btn-primary">View Departments</a><br><br>
-	    											<a href="searchuser.php" class="btn btn-primary">Search Employee</a><br><br>
-	    										<br><br>	
-	    								</div>
-
-	    						</div>
-	    				</div>
-
-	    			
 
 
 	    				<?php
@@ -95,8 +112,4 @@
         	    	}
 
         	    
- 
-
-
-
- include"bottom.php"; ?>
+ include"bottom.php";  ?>
