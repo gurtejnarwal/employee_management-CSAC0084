@@ -27,34 +27,65 @@
 		
 						?>
 
-
-<form method="post">
-						<div class="container-fluid text-center align-items-center padding border" style="padding-bottom:100px;">
-								<div class="row">
-										<div class="col-lg-6 col-md-6 col-sm-12"> 				
-												 <h1 class="display-4">Welcome to your Profile</h1>
-			    								<label>Name : </label> <input type="text" value="<?php	echo $row[1]; echo $row[2];  ?>"><br><br>
-			    				
-					    						<label>DOB : </label> <input type="text" value="<?php	echo $row[3];  ?>"><br><br>
-			    								<label>Email : </label> <input type="text" value="<?php	echo $row[4];  ?>"><br><br>
-			    								<label>Acess Type: </label> <input type="text" value="<?php	echo $row[5];  ?>"><br><br>
-			    								<label>Department : </label> <input type="text" value="<?php	echo $row[6];  ?>"><br><br>
-			    								<label>Phone : </label> <input type="text" value="<?php	echo $row[7];  ?>"><br><br>
-			    								<input type="submit" name="Signup" value="    		Edit		    " class="btn btn-primary" ><br>
-	    								</div>
-
-	    								<div class="col-lg-6 col-md-6 col-sm-12 border"  style="padding-top:200px;">
-	    							<h3>Regualr User Operations :</h3><br>
-	    									
 	    										
-	    										<input type="submit" name="request" value="Request Elevated Access" class="btn btn-primary"><br>	
+
+<div class="container-fluid align-items-center padding">
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12 border align-items-center text-center">
+	 <h1 class="display-5 text center">Profile Info</h1>
+	 <h3>Please fill in all the details</h3>
+	 <form method="post"  style="padding-bottom: 10px;">
+	 <div class="row">
+	 	<div class="col">
+	 		<input type="text" name="fname" class="form-control" placeholder="Firstname" required="required" value="<?php echo $row[1]; ?>">
+	 	</div>
+	 	<div class="col">
+	 		<input type="text" name="lname" class="form-control" placeholder="Lastname" required="required" value="<?php echo $row[2]; ?>">
+	 	</div>
+	 </div><br>
+	 <input type="email" name="email" class="form-control" placeholder="Email" required="required" value="<?php echo $row[4]; ?>"><br>
+	 
+	 <input type="date" name="dob" class="form-control" placeholder="Enter Your DOB" required="required" value="<?php echo $row[3]; ?>"><br>
+	 <div class="row">
+	 	<div class="col-3">
+	 		<label class="form-control">Department</label>
+	 	</div>
+	 	<div class="col-9">
+
+      <select name="department" class="form-control" value="<?php echo $row[6]; ?>">
+        
+        <option>Engineering</option>
+        <option>Human Resources</option>
+        <option>Technology</option>
+        <option>Administration</option>
+        <option>Assistance</option>
+        <option>Security</option>
+      </select>
+    <br>	 	</div>
+	 </div>
+	 <input type="number" name="phone" class="form-control" placeholder="Enter Your Number" required="required" value="<?php echo $row[8]; ?>"><br>
+	 <input type="submit" name="update" value="Update Info" class="btn btn-primary btn-lg form-control">
+
+	 </form>
+</div>
+
+
+						<div class="col-lg-6 col-md-6 col-sm-12 border align-items-center text-center">
+								
+
+	    								<div>
+	    							<h3>Regular User Operations :</h3>
+	    									
+	    														<input type="submit" name="request" value="Request Elevated Access" class="btn btn-primary"><br>
 
 	    								</div>
 
 	    						</div>
 	    				</div>
-</form>
-	    			
+
+	    			</div>
+	    			    					
+
 
 
 	    				<?php

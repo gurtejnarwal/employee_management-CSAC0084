@@ -63,24 +63,32 @@
 			        <a class="nav-link" href="user.php">Home <span class="sr-only">(current)</span></a>
 			      </li>
 
-					<li class="nav-item">
-			        <a class="nav-link" href="profile.php">Profile</a>
-			      </li>
 					
 					
 				  <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="		false">Services</a>
 			        
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			          <a class="dropdown-item" href="contactus.html">Contact Us</a>
-			          <a class="dropdown-item" href="pricing.html">Pricing</a>
-			        
+			          
+			        <a href="adduser.php" class="dropdown-item">Add New User</a>
+					<a href="viewrequests.php" class="dropdown-item">Check Response Requests</a>
+					<a href="allusers.php" class="dropdown-item">View All Users</a>
+					<a href="department.php" class="dropdown-item">View Departments</a>
+					<a href="searchuser.php" class="dropdown-item">Search Employee</a>
+
+
+
 			          <div class="dropdown-divider"></div>
 			        	  <a class="dropdown-item" href="../logout.php">Log Out</a>
 			        </div>
+			     
+
 			      </li>
 
-
+			      	
+					<li class="nav-item">
+			        <a class="nav-link" href="profile.php">Profile</a>
+			      </li>
 			    
 			    </ul>
 			</div>

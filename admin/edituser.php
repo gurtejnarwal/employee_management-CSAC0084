@@ -61,7 +61,7 @@ if (isset($_POST['update'])) {
 	
 <div class="container-fluid text-center col-lg-5 align-items-center padding">
 	<div class="col-12"></div>
-	 <h1 class="display-4">Edit user Info</h1>
+	 <h1 class="display-4">Profile Info</h1>
 	 <h3>Please fill in all the details</h3>
 	 <form method="post"  style="padding-bottom: 10px;">
 	 <div class="row">

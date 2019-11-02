@@ -1,15 +1,42 @@
-<?php include"top.php";?>
+<?php include"top.php";
 
+ $sql = "SELECT * FROM `users` WHERE `email`='".$_SESSION['USEREMAIL']."'";
+     
+     //echo $sql;
 
+  $result = mysqli_query($conn,$sql);// or die(mysql_error());
+ 
+      
 
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+       //  $active = $row['active'];
 
-<div class="container-fluid">
+        if ($result=mysqli_query($conn,$sql))
+        
+            {
+  // Fetch one and one row
+                while ($row=mysqli_fetch_row($result))
+    
+                {   
+                    $fn=$row[1];
+                    $ln=$row[2];
+
+                    }
+
+                }
+
+                    else
+                        { echo "Some error occured";}
+
+?>
+<div class="container">
 	<div class="col-12">
-		<h1 class="my-2">Welcome Regular user <?php   echo $_SESSION['USEREMAIL'];  ?></h1>
+		<h3 class="my-2">Welcome Regular user <?php   echo $fn." ".$ln  ?></h1>
 		
 	</div>
 
-        <div class="jumbotron">
+        <div class=" col-9 jumbotron">
      
         <p class="lead">The persistence of assigned order(software) called as “Employee management system”. The team has assigned the release number to the software is “CHJM 725”. The system required specifications (SRS) help the client to fulfill various of the needs in the company. For example, the employee management system will help to manage the payroll system of the employees. Moreover, it will work for management of attendance with CHECK IN and CHECK OUT time of the employees. There will be a personal email directory with both complaint and suggestion box option. Basically, the software will work for single subsystem which mean one part of the system will have further subparts.</p>
 
@@ -17,7 +44,7 @@
 
          <a class="btn btn-primary btn-lg" href="Signup.html" role="button">Learn More</a>
 
-
+            
 </div>
 
 	

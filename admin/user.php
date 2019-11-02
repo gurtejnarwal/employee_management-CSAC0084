@@ -1,11 +1,42 @@
-<?php include"top.php";?>
+<?php include"top.php";
+
+ $sql = "SELECT * FROM `users` WHERE `email`='".$_SESSION['USEREMAIL']."'";
+     
+     //echo $sql;
+
+  $result = mysqli_query($conn,$sql);// or die(mysql_error());
+ 
+      
+
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      
+       //  $active = $row['active'];
+
+        if ($result=mysqli_query($conn,$sql))
+        
+            {
+  // Fetch one and one row
+                while ($row=mysqli_fetch_row($result))
+    
+                {   
+                    $fn=$row[1];
+                    $ln=$row[2];
+
+                    }
+
+                }
+
+                    else
+                        { echo "Some error occured";}
+
+?>
 
 
 
 
 <div class="container-fluid">
 	<div class="col-12">
-		<h1 class="my-2">Welcome Admin <?php   echo $_SESSION['USEREMAIL'];  ?></h1>
+		<h1 class="my-2">Welcome Admin <?php   echo $fn." ".$ln  ?></h1>
 		
 	</div>
     <div class="jumbotron">
