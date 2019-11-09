@@ -76,13 +76,13 @@ $i=1;
 					  <thead>
 					    <tr>
 					      <th scope="col">#</th>
-					      <th scope="col">Firstname</th>
-					      <th scope="col">Lastname</th>
+					      <th scope="col">Fullname</th>
+					      
 					      <th scope="col">Email</th>
-					      <th scope="col">DOB</th>
+					      
 						  <th scope="col">Department</th>
 					      <th scope="col">Access Type</th>
-					      <th scope="col">Phone</th>
+					     
 					      <th scope="col">Action</th>
 					      
 
@@ -102,15 +102,15 @@ $i=1;
 
 						    <tr>
 						      <th scope="row"><?php echo $i++; ?></th>
-						      <td><?php echo $row[1];  ?></td>
-						      <td><?php echo $row[2];  ?></td>
+						      <td><?php echo $row[1]." ".$row[2];  ?></td>
+						      
 						      <td><?php echo $row[4];  ?></td>
-						      <td><?php echo $row[3];  ?></td>
+						     
 
 						      <td><?php echo $row[6];  ?></td>
 						      <td><?php echo $row[5];  ?></td>
-						      <td><?php echo $row[8]   ?></td>
-						      <td><a href="edituser.php?email=<?php echo $row[4]; ?>" class="btn btn-warning">Edit</a> || <a href="" class="btn btn-danger">Delete</a></td>
+						      
+						      <td><a href="edituser.php?email=<?php echo $row[4]; ?>&result=Edit" class="btn btn-warning">Edit</a> || <a href="edituser.php?email=<?php echo $row[0]; ?>&result=Delete" class="btn btn-danger">Delete</a></td>
 						    </tr>
 						   
 	    			<?php

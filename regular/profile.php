@@ -1,5 +1,17 @@
 <?php include"top.php"; 
 
+if ($_SESSION['USEREMAIL']=="") {
+
+echo "<script type='text/javascript'>alert('You are not Login!! Please Log in'); window.location.href ='../index.php'</script>";
+
+echo "you are not login";
+}
+
+
+
+
+
+else{
 
 
 
@@ -26,8 +38,7 @@
 	    		{
 		
 						?>
-
-	    										
+		
 
 <div class="container-fluid align-items-center padding">
 	<div class="row">
@@ -66,7 +77,7 @@
 	 <input type="number" name="phone" class="form-control" placeholder="Enter Your Number" required="required" value="<?php echo $row[8]; ?>"><br>
 	 <input type="submit" name="update" value="Update Info" class="btn btn-primary btn-lg form-control">
 
-	 </form>
+	 
 </div>
 
 
@@ -76,8 +87,43 @@
 	    								<div>
 	    							<h3>Regular User Operations :</h3>
 	    									
-	    														<input type="submit" name="request" value="Request Elevated Access" class="btn btn-primary"><br>
+									<input type="submit" name="request" value="Request Elevated Access" class="btn btn-primary"><br>
+									<br>
+									<?php
 
+									$sql="select * from `request_access` where `uid`='".$row[0]."'";
+										 $result = mysqli_query($conn,$sql);// or die(mysql_error());
+										  $row2 = mysqli_fetch_array($result,MYSQLI_ASSOC);
+     									if ($result=mysqli_query($conn,$sql))
+		  									{	
+		  										while ($row2=mysqli_fetch_row($result))
+	    		{					
+	    								if($row2[3]=='1')
+						      			{
+						      				echo " Your Request was Accepted";
+						      			}
+						      			elseif($row2[3]=='2') {
+						      				echo "Your Request is still Pending";
+						      				# code...
+						      			}
+
+						      			elseif($row2[3]=='0') {
+						      				echo "Your Request was Declined";
+
+						      			} 
+						      			else{
+
+						      			}
+	 }
+
+				    				
+				    				     }
+        	
+
+
+
+
+									?>
 	    								</div>
 
 	    						</div>
@@ -85,7 +131,7 @@
 
 	    			</div>
 	    			    					
-
+</form>
 
 
 	    				<?php
@@ -105,6 +151,7 @@ $sql1="INSERT INTO `request_access`(`uid`, `access_type`, `result`,`firstname`,`
 }
 
 
+
 				}
   
 				
@@ -115,8 +162,5 @@ $sql1="INSERT INTO `request_access`(`uid`, `access_type`, `result`,`firstname`,`
         	    	}
 
         	    
- 
-
-
-
+ }
  include"bottom.php"; ?>

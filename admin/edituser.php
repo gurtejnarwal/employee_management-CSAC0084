@@ -1,6 +1,24 @@
 <?php include"top.php"; 
-  $userinfo=$_GET['email'];
 
+if ($_SESSION['USEREMAIL']=="") {
+
+echo "<script type='text/javascript'>alert('You are not Login!! Please Log in'); window.location.href ='../index.php'</script>";
+
+echo "you are not login";
+}
+
+
+
+
+
+else{
+
+
+  $userinfo=$_GET['email'];
+  $result=$_GET['result'];
+ 
+ if ($result=="Edit") {
+ 	# code...
  
 if (isset($_POST['update'])) {
 
@@ -111,5 +129,28 @@ if (isset($_POST['update'])) {
       else{
         	    	}
 
-        	    
+        	    }
+        	    elseif ($result=="Delete") {
+        	    	# code...
+        	    	echo "delete dum dum bum bum";
+
+        	    	$sql="DELETE FROM `users` WHERE `uid`='$userinfo'";
+        	    	echo $sql;
+
+			if (mysqli_query($conn, $sql)) 
+					    				    {
+		  										header('Location:allusers.php');
+				           					 } 
+				    				
+				    				        else {
+				               						echo "Error: " . $sql . "" . mysqli_error($conn);
+				            					}
+        	    }
+        	    else
+        	    {
+        	    	echo "hanji nahi chlya";
+        	    }
+
+
+        	}
  include"bottom.php";  ?>

@@ -2,19 +2,12 @@
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 
-
-$link = mysqli_connect("localhost", "root", "", "ems");
- 
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
  
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
     $sql = "SELECT * FROM users WHERE fname LIKE ?";
     
-    if($stmt = mysqli_prepare($link, $sql)){
+    if($stmt = mysqli_prepare($conn, $sql)){
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "s", $param_term);
         
@@ -29,23 +22,13 @@ if(isset($_REQUEST["term"])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                   ?> 
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="edituser.php?email=<?php echo $row["email"]; ?>"><?php echo $row["fname"]; ?></a></li>
-
-                </ul>
-
-
-
-
-<?php
-                    //echo "<p>" . $row["fname"]."&nbsp;".$row["lastname"].  "</p>";
+                    echo "<"p">" . $row["fname"] . "</p>";
                 }
             } else{
                 echo "<p>No matches found</p>";
             }
         } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
     }
      
@@ -54,5 +37,5 @@ if(isset($_REQUEST["term"])){
 }
  
 // close connection
-mysqli_close($link);
+mysqli_close($conn);
 ?>

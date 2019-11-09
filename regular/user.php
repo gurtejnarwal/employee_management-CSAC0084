@@ -1,5 +1,18 @@
 <?php include"top.php";
 
+if ($_SESSION['USEREMAIL']=="") {
+
+echo "<script type='text/javascript'>alert('You are not Login!! Please Log in'); window.location.href ='../index.php'</script>";
+
+echo "you are not login";
+}
+
+
+
+
+
+else{
+
  $sql = "SELECT * FROM `users` WHERE `email`='".$_SESSION['USEREMAIL']."'";
      
      //echo $sql;
@@ -79,3 +92,5 @@
 </footer>
 </body>
 </html>
+
+<?php }  ?>

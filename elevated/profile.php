@@ -1,4 +1,19 @@
 <?php include"top.php"; 
+
+
+if ($_SESSION['USEREMAIL']=="") {
+
+echo "<script type='text/javascript'>alert('You are not Login!! Please Log in'); window.location.href ='../index.php'</script>";
+
+echo "you are not login";
+}
+
+
+
+
+
+else{
+
    
    $userinfo=$_SESSION['USEREMAIL'];
   
@@ -97,6 +112,6 @@
         	    
  
 
-
+}
 
  include"bottom.php"; ?>

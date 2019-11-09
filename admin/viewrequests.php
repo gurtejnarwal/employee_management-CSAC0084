@@ -1,5 +1,20 @@
 <?php include"top.php";
 
+
+if ($_SESSION['USEREMAIL']=="") {
+
+echo "<script type='text/javascript'>alert('You are not Login!! Please Log in'); window.location.href ='../index.php'</script>";
+
+echo "you are not login";
+}
+
+
+
+
+
+else{
+
+
 $i=1;
 
 
@@ -72,13 +87,34 @@ $i=1;
 
 						      			else{
 						      				echo "Declined";
+
 						      			}  ?>
 
 
 						      				
 
 						      </td>
-						      <td><input type="submit" name="accept" value="Accept" class="btn btn-warning"> || <input type="submit" name="Decline" value="Decline" class=" btn btn-danger"></td>
+						      <td>
+						      	<?php 
+
+						      	if($row[3]=='1')
+						      			{
+						      				echo "Request Accepted";
+						      			}
+						      	else if ($row[3]=='2') {
+
+						      		?>
+						      				<a href="request.php?id=<?php echo $row[1]; ?>&result=Accept" class="btn btn-warning">Accept</a> || <a href="request.php?id=<?php echo $row[1]; ?>&result=Decline" class="btn btn-danger">Decline</a></td>
+					<?php		# code...
+						      			}
+
+						      	else{
+					?>
+						      				<a href="request.php?id=<?php echo $row[1]; ?>&result=Delete" class="btn btn-danger">Delete Request From List</a>
+						      		<?php
+						      	}?>
+
+						      	
 						    </tr>
 						   
 	    			<?php
@@ -87,41 +123,6 @@ $i=1;
 
 
 
-			
-
-						      			if (isset($_POST['accept'])) 
-	    			{
-	    				
-			    				$sql="UPDATE `request_access` SET `access_type`='Elevated User',`result`='1' where `uid`='".$row[1]."'";
-
-			    				echo $sql;
-			    				if (mysqli_query($conn, $sql)) 
-			    				    {
-		              					 echo "New record created successfully";
-		           					 } 
-		    				
-		    				        else {
-		               						echo "Error: " . $sql . "" . mysqli_error($conn);
-		            					}
-
-			    	}
-
-			    	else if (isset($_POST['Decline'])) 
-	    			{
-	    				
-			    				$sql="UPDATE `request_access` SET `result`='0' where `uid`='".$row[1]."'";
-
-			    				echo $sql;
-			    				if (mysqli_query($conn, $sql)) 
-			    				    {
-		              					 echo "New record created successfully";
-		           					 } 
-		    				
-		    				        else {
-		               						echo "Error: " . $sql . "" . mysqli_error($conn);
-		            					}
-
-			    	}	
 
 
 						      			
@@ -146,19 +147,6 @@ $i=1;
 </div>
 </div>
 </form>
-
-
-<?php include"bottom.php"; 
-
-
-
-	    			
-
-
-
-
- 
-
-
-?>
-
+<?php
+}
+ include"bottom.php"; ?>

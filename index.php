@@ -7,7 +7,7 @@
       // username and password sent from form 
       
 		 $myusername = mysqli_real_escape_string($conn,$_POST['login_username']);
-      $mypassword = mysqli_real_escape_string($conn,$_POST['login_password']); 
+      $mypassword = sha1(mysqli_real_escape_string($conn,$_POST['login_password'])); 
       
       $sql = "SELECT * FROM `users` WHERE `email` = '$myusername' and `pass` = '$mypassword'";
      
